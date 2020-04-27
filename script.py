@@ -279,10 +279,6 @@ def main():
     remember(_logFile ="%s@%s.log"%(d["_username"],d["_hostname"]))
     DoubleLog(d['_logFile'])
     #
-    # process command line
-    #
-    wantDump = len(sys.argv)==2 and sys.argv[1]=="--dump"
-    #
     # initial message
     #
     s="Analysis of %s@%s started at %s"%(d["_username"],d["_hostname"], d["_timestamp"])
