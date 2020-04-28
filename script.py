@@ -235,11 +235,17 @@ def checkIdle():
 
 def checkNppp():
     logging.info("\n\n -- Notepad++ --\n")
-    f = "C:\\Program Files (x86)\\Notepad++\\notepad++.exe"
-    if os.path.isfile(f):
-        logging.info("Found at:\n %s" % (f))
-    else:
-        logging.error("Could not find notepad++ in its usual location")
+    first = True
+    for f in [
+        "C:\\Program Files (x86)\\Notepad++\\notepad++.exe",
+        "C:\\Program Files\\Notepad++\\notepad++.exe"]:
+        if os.path.isfile(f):
+            if first:
+                logging.info("Found at:")
+                first = False
+            logging.info("%s" % (f))
+    if first:
+        logging.error("Could not find notepad++ in its usual locations")
 
 
 def checkPycharm():
