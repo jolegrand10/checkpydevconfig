@@ -101,7 +101,7 @@ def checkPath(p):
         l = [w for w in filter(isRelated,os.getenv("PATH","").split(";"))]
     except Exception:
         l = []
-    if l != []:
+    if l:
         s  = "PATH includes (%s)-related values:\n "%(p)
         s +=("\n ").join(l)
         logging.info(s)
